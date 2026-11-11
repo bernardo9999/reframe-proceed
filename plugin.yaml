@@ -1,0 +1,9 @@
+name: reframe-proceed
+version: 0.1.0
+description: Personal evolution system for long-term vision, weekly planning, daily accountability and continuous reflection.
+provides_tools:
+  - reframe_save_vision
+  - reframe_update_plan
+  - reframe_daily_checkin
+  - reframe_weekly_review
+  - reframe_get_context
