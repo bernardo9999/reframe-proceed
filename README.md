@@ -10,6 +10,10 @@ Reframe, Proceed adds tools for recording a long-term personal vision, weekly pl
 - `reframe_weekly_review` records wins, missed goals, lessons, and adjustments for a week.
 - `reframe_get_context` retrieves recent saved records, optionally filtered by section.
 
+## Bundled skill
+
+The `personal-planning` skill guides the vision-to-weekly-plan-to-check-in-to-review workflow. It is opt-in and can be loaded as `reframe-proceed:personal-planning`.
+
 ## Data and privacy
 
 The plugin stores the text supplied to these tools (vision, plans, check-ins, and reviews) in Hermes-managed plugin storage through `plugin_db("reframe-proceed")`. Hermes scopes plugin storage to the active profile. Records are durable and may remain after the plugin is updated or removed; reinstalling or enabling the plugin can make the same stored records available again.

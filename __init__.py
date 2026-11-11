@@ -1,5 +1,7 @@
 """Hermes plugin registration for Reframe, Proceed."""
 
+from pathlib import Path
+
 from . import schemas, tools
 
 
@@ -19,3 +21,10 @@ def register(ctx):
             schema=schema,
             handler=handler,
         )
+
+    skills_dir = Path(__file__).parent / "skills"
+    if skills_dir.is_dir():
+        for child in sorted(skills_dir.iterdir()):
+            skill_md = child / "SKILL.md"
+            if child.is_dir() and skill_md.is_file():
+                ctx.register_skill(child.name, skill_md)

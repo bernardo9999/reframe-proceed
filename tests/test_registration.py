@@ -28,9 +28,13 @@ spec.loader.exec_module(plugin)
 class RecordingContext:
     def __init__(self):
         self.tools = []
+        self.skills = []
 
     def register_tool(self, **kwargs):
         self.tools.append(kwargs)
+
+    def register_skill(self, name, path):
+        self.skills.append((name, Path(path)))
 
 
 class RegistrationTests(unittest.TestCase):
@@ -52,4 +56,14 @@ class RegistrationTests(unittest.TestCase):
         self.assertTrue(all(callable(entry["handler"]) for entry in context.tools))
         self.assertTrue(
             all(entry["schema"]["name"] == entry["name"] for entry in context.tools)
+        )
+
+    def test_registers_personal_planning_skill(self):
+        context = RecordingContext()
+
+        plugin.register(context)
+
+        self.assertEqual(
+            context.skills,
+            [("personal-planning", PLUGIN_DIR / "skills" / "personal-planning" / "SKILL.md")],
         )
