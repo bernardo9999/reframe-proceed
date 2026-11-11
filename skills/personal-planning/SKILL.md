@@ -1,6 +1,7 @@
 ---
 name: personal-planning
-description: Support the user's vision, weekly plans, daily check-ins, and reviews with Reframe, Proceed.
+description: Guide vision, weekly plans, check-ins, and reviews.
+version: "1.0.0"
 ---
 
 # Reframe, Proceed: Personal Planning
